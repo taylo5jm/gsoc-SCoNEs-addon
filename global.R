@@ -1,7 +1,7 @@
 # global.R
 library(magrittr)
 
-data_path <- "gsoc2016/data_test/SCONES_test.tsv"
+data_path <- "SCONES_test.tsv"
 SCONES_test <- read.table(data_path, header = TRUE,
                           sep = "\t")
 # compute log2 ratio
