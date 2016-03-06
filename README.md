@@ -33,6 +33,10 @@ Rscript -e "shiny::runApp()"
 
 ### Implementation Comments
 
-Shiny is a web application framework for R that provides fast prototyping for tasks of this nature. With the R package DT, we are tapping in to popular DataTables Javascript library. Therefore, this application can be modified by those with experience in JavaScript, as well as R programmers with little experience in front-end web development. For example, a data analyst can easily add a new variable to the rendered table and a front-end developer can add HTML tags in the R source code to escape table content.
+Shiny is a web application framework for R that provides fast prototyping for tasks of this nature. With the R package DT, we are tapping in to the popular DataTables Javascript library. Therefore, this application can be modified by those with experience in JavaScript, as well as R programmers with little experience in front-end web development. For example, a data analyst can easily add a new variable to the rendered table and a front-end developer can add HTML tags in the R source code to escape table content.
 
 Second, this application can be easily modified to better suit the needs of a data analyst proficient in R, rather than an end-user. Suppose that a data analyst might want to subset this table in a graphical interface, but is primarily interested in applying operations to the data in R after subsetting. With a few small modifications, this application can return a subsetted data frame as a Shiny gadget.
+
+#### Additional Notes
+
+Upon initialization, the application excises rows in the data with infinite values (positive or negative). I am assuming that these infinite values are produced by dividing by 0, but since the computation of the log2 ratios occured prior to the recording of these data, entries with infinite values are removed. Entries removed are printed to the console.
