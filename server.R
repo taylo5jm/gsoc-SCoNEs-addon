@@ -11,15 +11,16 @@ shinyServer(function(input, output) {
     "SCONES_test.tsv"
   )
   
-  output$description <- renderText("log2-ratio signal for two test samples, test
+  output$description <- renderText("log2-ratio signal for two test samples: test
                                   sample 1 and test sample two. This ratio is computed
-by the log2 ratio of a test sample and reference sample.")
+by the log2 expression value of a test sample and reference sample.")
   
   output$logratio <- renderDataTable({
-    DT::datatable(SCONES_test, caption = "Log Ratios", filter = "top", 
-                  extensions = 'TableTools', options = list(
-      dom = 'T<"clear">lfrtip',
-      tableTools = list(sSwfPath = copySWF('www')))) %>%
+    DT::datatable(SCONES_test, 
+                  caption = "log2 ratios for testSample1 and testSample2", 
+                  filter = "top", extensions = 'TableTools', options = list(
+                  dom = 'T<"clear">lfrtip',
+                  tableTools = list(sSwfPath = copySWF('www')))) %>%
       formatStyle('chr', backgroundColor = "orange", fontWeight = "bold") %>%
       formatStyle(c('start', 'end'), backgroundColor = "gray", color = "white")
   })
@@ -30,6 +31,4 @@ by the log2 ratio of a test sample and reference sample.")
       write.csv(SCONES_test, file)
     }
   )
-  
-  
 })

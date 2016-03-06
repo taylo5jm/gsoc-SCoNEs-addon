@@ -31,6 +31,8 @@ cd gsoc-SCoNEs-addon
 Rscript -e "shiny::runApp()"
 ```
 
+This package was tested on R 3.2.3 on RedHat running under Fedora 23.
+
 ### Implementation Comments
 
 Shiny is a web application framework for R that provides fast prototyping for tasks of this nature. With the R package DT, we are tapping in to the popular DataTables Javascript library. Therefore, this application can be modified by those with experience in JavaScript, as well as R programmers with little experience in front-end web development. For example, a data analyst can easily add a new variable to the rendered table and a front-end developer can add HTML tags in the R source code to escape table content.
